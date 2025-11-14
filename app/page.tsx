@@ -6,7 +6,7 @@
 
 import experience from "@/data/experience";
 import projects from "@/data/projects";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import { ArrowRight, Flower2, Github, Link as LinkIcon, Linkedin, Mail } from "lucide-react";
 import { useMemo } from "react";
 
@@ -15,7 +15,7 @@ const fade = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }, // easeOut equivalent
+    transition: { duration: 0.6, ease: easeOut },
   },
 };
 
