@@ -40,7 +40,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <IconButton href="https://github.com/erubkhan" label="GitHub"><Github className="w-5 h-5" /></IconButton>
             <IconButton href="https://www.linkedin.com/in/erubkhan/" label="LinkedIn"><Linkedin className="w-5 h-5" /></IconButton>
-            <IconButton href="mailto:erub.khan@gmail.com" label="Email">
+            <IconButton href="mailto:erubkhan@hotmail.com" label="Email">
               <Mail className="w-5 h-5" />
             </IconButton>
           </div>
@@ -64,8 +64,8 @@ export default function Home() {
               <a href="#projects" className="inline-flex items-center gap-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition px-6 py-3 font-medium text-black">
                 View Projects <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-gray-600 hover:border-indigo-400 px-6 py-3 text-white transition">
-                Contact <Mail className="w-4 h-4" />
+              <a href="mailto:erubkhan@hotmail.com" className="inline-flex items-center gap-2 rounded-full border border-gray-600 hover:border-indigo-400 px-6 py-3 text-white transition">
+                Say Hello! <Mail className="w-4 h-4" />
               </a>
             </div>
           </motion.div>
