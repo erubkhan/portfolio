@@ -33,7 +33,7 @@ const projects = [
           "My personal portfolio site built with Next.js 15, TailwindCSS, and Framer Motion — showcasing my journey as a full-stack developer.",
         tech: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
         repo: "https://github.com/erubkhan/portfolio", // or the repo for this site
-        demo: "", // leave empty until it's deployed
+        demo: "https://erubkhan-portfolio.vercel.app", // leave empty until it's deployed
       },
   ];
   
