@@ -25,6 +25,7 @@ export default function Home() {
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
+
     <main className="min-h-screen text-white bg-gradient-to-b from-[#0a0b10] to-[#0c0d13]">
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10 bg-black/30">
@@ -195,6 +196,24 @@ export default function Home() {
 
       {/* EXPERIENCE */}
       <section id="experience" className="py-24 bg-[#0b0d12]">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-3xl font-semibold text-indigo-500">Experience ~</h2>
+          <p className="mt-2 text-gray-400">Roles, internships, and notable work.</p>
+          <div className="mt-10 space-y-6">
+            {experience.map((e) => (
+              <div key={e.company} className="bg-[#111319] border border-gray-800 rounded-3xl p-8">
+                <h3 className="text-lg font-semibold text-white">{e.role} · {e.company}</h3>
+                <p className="text-gray-500 text-sm">{e.location} • {e.period}</p>
+                <ul className="mt-4 text-gray-300 list-disc pl-6 space-y-2">
+                  {e.highlights.map((h: string, i: number) => <li
+                    key={i}
+                    dangerouslySetInnerHTML={{ __html: h }}
+                  />)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl font-semibold text-indigo-500">Experience ~</h2>
           <p className="mt-2 text-gray-400">Roles, internships, and notable work.</p>
