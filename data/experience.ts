@@ -28,9 +28,9 @@ interface ExperienceItem {
       location: "Mississauga, Canada",
       period: "May 2024 – September 2024",
       highlights: [
-        'Developed a full-stack mobile app, called <a href="https://healthlytics.ai" target="_blank" rel="noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Healthlytics.ai</a>, for therapists with session recording, transcription, summarization, and AI-powered chat features.',
-        "Integrated AWS services (Amplify, Lambda, S3, API Gateway, Cognito, Bedrock) for secure backend functionality.",
-        "Used Python and LLMs (Claude 3 Sonnet, Deepgram) to implement advanced AI features.",
+        "Built a modular, production-ready REST API backend enabling WhatsApp-style CRM operations, including message handling, uploads, contacts, and customer management.",
+        "Designed clean controller–service architecture with secure routing, middleware, and robust error handling.",
+        "Integrated Supabase/PostgreSQL for structured customer data, optimized queries, and reliable CRUD flows.",
       ],
     },
   ];
