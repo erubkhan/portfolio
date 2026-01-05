@@ -7,6 +7,7 @@ const projects = [
       tech: ["Next.js", "TypeScript", "Node.js/Express", "OpenAI", "Supabase"],
       repo: "https://github.com/erubkhan/ai-resume-matcher",
       demo: "https://ai-resume-matcher-2.vercel.app",
+      image: "/project_img/resumegpt.png",
     },
     {
         slug: "infinitum-crm",
@@ -25,6 +26,7 @@ const projects = [
         tech: ["Next.js", "Supabase", "TailwindCSS", "TypeScript"],
         repo: "https://github.com/erubkhan/warnify", // add your repo if available
         demo: "https://warnify.vercel.app", // add link if you have one later
+        image: "/project_img/warnify.png",
       },
       {
         slug: "portfolio",
@@ -34,6 +36,7 @@ const projects = [
         tech: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
         repo: "https://github.com/erubkhan/portfolio", // or the repo for this site
         demo: "https://erubkhan-portfolio.vercel.app", // leave empty until it's deployed
+        image: "/project_img/portfolio.png",
       },
   ];
   

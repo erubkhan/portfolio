@@ -213,21 +213,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          <div className="mt-10 space-y-6">
-            {experience.map((e) => (
-              <div key={e.company} className="bg-[#111319] border border-gray-800 rounded-3xl p-8">
-                <h3 className="text-lg font-semibold text-white">{e.role} · {e.company}</h3>
-                <p className="text-gray-500 text-sm">{e.location} • {e.period}</p>
-                <ul className="mt-4 text-gray-300 list-disc pl-6 space-y-2">
-                  {e.highlights.map((h: string, i: number) => <li
-                    key={i}
-                    dangerouslySetInnerHTML={{ __html: h }}
-                  />)}
-                </ul>
-              </div>
-            ))}
-          </div>
           
         </div>
         
