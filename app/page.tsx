@@ -4,6 +4,8 @@
 
 "use client";
 
+import Flower3D from "@/components/Flower3D";
+import PetalsBackground from "@/components/PetalsBackground";
 import experience from "@/data/experience";
 import projects from "@/data/projects";
 import { easeOut, motion } from "framer-motion";
@@ -27,6 +29,7 @@ export default function Home() {
   return (
 
     <main className="min-h-screen text-white bg-gradient-to-b from-[#0a0b10] to-[#0c0d13]">
+      <PetalsBackground />
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 backdrop-blur border-b border-white/10 bg-black/30">
         <nav className="mx-auto max-w-7xl px-6 flex items-center justify-between py-5">
@@ -71,68 +74,146 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="relative rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
-              <img
-                src="/myphoto.jpeg"
-                alt="Erub Khan portrait or workspace"
-                className="object-cover w-full h-[450px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
-          </motion.div>
+          {/* 3D Flower */}
+          <Flower3D />
+
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-24 bg-[#0b0d12]">
-        <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3">
-          <div>
-            <h2 className="text-3xl font-semibold text-indigo-500">About Me ~</h2>
-          </div>
-          <div className="md:col-span-2">
-            <div className="bg-[#111319] rounded-3xl border border-gray-800 p-8">
-              <p className="text-gray-300 leading-relaxed">
-                Currently I like to play with Full-Stack projects, using AI-powered applications to innovate modern experience.
-                I'm a Computer Science graduate from the University of Toronto.
-              </p>
-              <p className="mt-2 text-indigo-500">Here are some technologies I have been working with:</p>
-              <div className="flex flex-wrap gap-24 mt-4 text-gray-300 text-sm">
-                <ul className="space-y-2">
-                  {["React", "Next.js", "TypeScript", "Tailwind CSS"].map((tech) => (
-                    <li key={tech} className="flex items-center gap-2">
-                      <Flower2 className="w-4 h-4 text-indigo-500" />
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <ul className="space-y-2">
-                  {["Java", "Python", "MongoDB", "Node.js"].map((tech) => (
-                    <li key={tech} className="flex items-center gap-2">
-                      <Flower2 className="w-4 h-4 text-indigo-500" />
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="mt-4 text-gray-300 leading-relaxed">
-                Outside of work, I like to explore my artistic skills in e-commerce and business development, poetry and videography through my Tiktoks.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section id="about" className="py-24 bg-[#0b0d12] overflow-hidden">
+  <div className="mx-auto max-w-7xl px-6 grid gap-10 md:grid-cols-3 items-start">
 
+    {/* Left Column: Heading + Portrait */}
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl font-semibold text-indigo-500 mb-4">About Me ~</h2>
+
+      {/* Floating Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        animate={{ y: [0, -6, 0] }} // subtle float loop
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+        }}
+        className="mt-2"
+      >
+        <div className="relative rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
+          <img
+            src="/myphoto.jpeg"
+            alt="Erub Khan portrait"
+            className="object-cover w-full h-[280px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+      </motion.div>
+    </motion.div>
+
+    {/* Right Column: About Content */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { staggerChildren: 0.2, duration: 0.8, ease: "easeOut" },
+        },
+      }}
+      className="md:col-span-2"
+    >
+      <motion.div
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        className="bg-[#111319] rounded-3xl border border-gray-800 p-12 shadow-lg"
+      >
+        <p className="text-gray-300 leading-relaxed text-lg">
+          Currently I like to work with Full-Stack projects, using AI-powered applications to innovate modern experiences.
+          I'm a Computer Science graduate from the University of Toronto.
+        </p>
+
+        {/* Technologies */}
+        <motion.p
+          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+          className="text-indigo-500 font-medium mt-6"
+        >
+          Technologies I've been working with:
+        </motion.p>
+
+        <motion.div
+          variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4"
+        >
+          {[
+            "React", "Next.js", "TypeScript", "Tailwind CSS",
+            "Java", "Python", "MongoDB", "Node.js"
+          ].map((tech) => (
+            <div
+              key={tech}
+              className="flex items-center gap-2 bg-indigo-900/20 px-3 py-1 rounded-full text-gray-200 text-sm hover:bg-indigo-500/30 transition"
+            >
+              <Flower2 className="w-4 h-4 text-indigo-500" />
+              {tech}
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.p
+          variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+          className="mt-6 text-gray-300 leading-relaxed text-lg"
+        >
+          Outside of work, I like to explore my artistic skills in e-commerce and business development, poetry, and videography.
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
+                  
+      
       {/* PROJECTS */}
       <section id="projects" className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12">
             <h2 className="text-3xl font-semibold text-indigo-500">Projects ~</h2>
-            <p className="mt-2 text-gray-400">A selection of my work.</p>
+            <p className="mt-2 text-gray-400">
+              A selection of my work. Each project was carefully crafted with attention to detail, performance and user experience.
+            </p>
+          </div>
+
+          {/*Project image cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-12">
+            {projects.map((p) => (
+              <div
+                key={p.slug}
+                className="relative overflow-hidden rounded-2xl border border-gray-800 hover:border-indigo-400/40 transition-all duration-300 group"
+              >
+                {/* If the image is missing, show a placeholder */}
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="object-cover w-full h-36 sm:h-40 md:h-44 transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-36 sm:h-40 md:h-44 bg-gray-800 flex items-center justify-center text-gray-500 text-sm">
+                    No Image
+                  </div>
+                )}
+
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <h3 className="text-white text-sm font-medium text-center px-2">{p.title}</h3>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -144,14 +225,11 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="bg-[#111319] border border-gray-800 rounded-3xl p-8 hover:border-indigo-500/30 transition-all duration-300"
               >
-                {/* Title + Links */}
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="text-xl font-semibold text-white">{p.title}</h3>
                     <p className="mt-2 text-gray-400">{p.summary}</p>
                   </div>
-
-                  {/* Links */}
                   <div className="flex gap-3 items-center">
                     {p.demo && (
                       <a
@@ -176,7 +254,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Technologies */}
                 <div className="mt-4 flex flex-wrap gap-2">
                   {p.tech.map((t: string) => (
                     <span
@@ -192,6 +269,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
 
       {/* EXPERIENCE */}

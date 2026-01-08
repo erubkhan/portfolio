@@ -17,6 +17,7 @@ const projects = [
         tech: ["Node.js", "Socket.io", "MongoDB", "TypeScript"],
         repo: "https://github.com/erubkhan/infinitum-whatsapp-crm-server",
         demo: "",
+        image: "/project_img/infinitum-crm.png",
     },
     {
         slug: "warnify",
