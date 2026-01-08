@@ -99,10 +99,6 @@ export default function Home() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         animate={{ y: [0, -6, 0] }} // subtle float loop
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-        }}
         className="mt-2"
       >
         <div className="relative rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
